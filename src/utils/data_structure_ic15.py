@@ -41,8 +41,14 @@ def icdar2015_test(
 	all_annots = {'unknown': unknown, 'annots': {}}
 
 	for image_name in all_transcriptions:
+		ext = image_name.split('.')[-1]
+		if not ext == 'txt':
+			continue
 
-		i = 'gt_'+'.'.join(image_name.split('.')[:-1])+'.txt'
+		image_name = image_name.split('.')[0]
+		image_name = '_'.join(image_name.split('_')[1:])
+		i = 'gt_'+image_name+'.txt'
+
 		all_annots['annots'][image_name] = {}
 
 		cur_annot = []
@@ -75,8 +81,9 @@ def icdar2015_train(
 	:return: None
 	"""
 
+	print('image_path : {}'.format(image_path))
 	all_transcriptions = os.listdir(image_path)
-
+ 
 	# Sometimes the bbox is marked but the text is not marked.
 	# This is the symbol(unknown = '###') that was used in icdar 2013 to denote that text annotation is missing
 	unknown = '###'
@@ -99,8 +106,22 @@ def icdar2015_train(
 	all_annots = {'unknown': unknown, 'annots': {}}
 
 	for image_name in all_transcriptions:
+		# print('image_name ; {}'.format(image_name))
+		# print(image_name.split('.')[:-1])
+		# i = 'gt_'+'.'.join(image_name.split('.')[:-1])+'.txt'
+		# # i = ''.join(image_name.split('.')[:-1])+'.txt'
+		# i = 'gt_{}.txt'.format(image_name.split('.')[:-1][0])
 
-		i = 'gt_'+'.'.join(image_name.split('.')[:-1])+'.txt'
+		# print(i)
+
+		ext = image_name.split('.')[-1]
+		if not ext == 'txt':
+			continue
+
+		image_name = image_name.split('.')[0]
+		image_name = '_'.join(image_name.split('_')[1:])
+		i = 'gt_'+image_name+'.txt'
+		
 		all_annots['annots'][image_name] = {}
 
 		cur_annot = []

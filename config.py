@@ -39,17 +39,18 @@ print(
 print('Scale character value = ', scale_character, '| Scale affinity value = ', scale_affinity)
 print('Training Dataset = ', dataset_name, '| Testing Dataset = ', test_dataset_name)
 
-DataLoaderSYNTH_base_path = '/home/SharedData/Mayank/SynthText/Images'
-DataLoaderSYNTH_mat = '/home/SharedData/Mayank/SynthText/gt.mat'
-DataLoaderSYNTH_Train_Synthesis = '/home/SharedData/Mayank/Models/SYNTH/train_synthesis/'
+DataLoaderSYNTH_base_path = '/home/greg/dev/datasets/ICDAR2015-Text/ICDAR2015_Incidental/train'
+DataLoaderSYNTH_mat = '/home/greg/dev/datasets/Synth/SynthText/gt.mat'
+DataLoaderSYNTH_Train_Synthesis = '/home/greg/dev/datasets/ICDAR2015-Text/ICDAR2015_Incidental/train'
 
-DataLoader_Other_Synthesis = '/home/SharedData/Mayank/'+dataset_name+'/Save/'
-Other_Dataset_Path = '/home/SharedData/Mayank/'+dataset_name
-save_path = '/home/SharedData/Mayank/Models/WeakSupervision/'+dataset_name
-images_path = '/home/SharedData/Mayank/'+dataset_name+'/Images'
-target_path = '/home/SharedData/Mayank/'+dataset_name+'/Generated'
+DataLoader_Other_Synthesis = '/home/greg/dev/datasets/Synth/'+dataset_name+'/Save/'
+Other_Dataset_Path = '/home/greg/dev/datasets/Synth/'+dataset_name
 
-Test_Dataset_Path = '/home/SharedData/Mayank/'+test_dataset_name
+save_path = '/home/greg/dev/datasets/Synth/Models/WeakSupervision/'+dataset_name
+images_path = '/home/greg/dev/datasets/Synth/'+dataset_name+'/Images'
+target_path = '/home/greg/dev/datasets/Synth/'+dataset_name+'/Generated'
+
+Test_Dataset_Path = '/home/greg/dev/datasets/Synth/'+test_dataset_name
 
 threshold_word = 0.7
 threshold_fscore = 0.5
@@ -57,22 +58,22 @@ threshold_fscore = 0.5
 dataset_pre_process = {
 	'ic13': {
 		'train': {
-			'target_json_path': None,
-			'target_folder_path': None,
+			'target_json_path': '/home/greg/dev/datasets/ICDAR2015-Text/target_json',
+			'target_folder_path': '/home/greg/dev/datasets/ICDAR2015-Text/target_json',
 		},
 		'test': {
-			'target_json_path': None,
-			'target_folder_path': None,
+			'target_json_path': '/home/greg/dev/datasets/ICDAR2015-Text/target_json',
+			'target_folder_path': '/home/greg/dev/datasets/ICDAR2015-Text/target_json',
 		}
 	},
 	'ic15': {
 		'train': {
-			'target_json_path': None,
-			'target_folder_path': None,
+			'target_json_path': '/home/greg/dev/datasets/ICDAR2015-Text/ICDAR2015_Incidental/train',
+			'target_folder_path': '/home/greg/dev/datasets/ICDAR2015-Text/ICDAR2015_Incidental/train',
 		},
 		'test': {
-			'target_json_path': None,
-			'target_folder_path': None,
+			'target_json_path': '/home/greg/dev/datasets/ICDAR2015-Text/ICDAR2015_Incidental/test',
+			'target_folder_path': '/home/greg/dev/datasets/ICDAR2015-Text/ICDAR2015_Incidental/test',
 		}
 	}
 }
